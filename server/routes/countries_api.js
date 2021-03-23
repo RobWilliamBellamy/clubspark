@@ -22,14 +22,14 @@ class CountriesAPI {
         router.get("/list", (req, res, next) => {
 
             this.teams_dao.getCountries()
-            .then((getCountries) => {
+            .then((countries) => {
 
                 res.json({
                     status: 200,
                     countries: countries
                 });
             })
-            .catch((err) => {
+            .catch((err) => {                
                 res.json({status: 500});
             });          
         });

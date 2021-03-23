@@ -8,12 +8,12 @@ import './css/Teams.css';
 const Teams = () => {
 
     // Use context to access state.
-    const [teams] = useContext(AppContext);    
+    const [ state ] = useContext(AppContext);     
 
     const renderTableContent = () => {
 
         let rows = [];
-        teams.forEach((t, i) => {
+        state.teams.forEach((t, i) => {
 
             const link = { path: '/team/' + i };
             rows.push(
