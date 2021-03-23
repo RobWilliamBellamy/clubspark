@@ -1,0 +1,33 @@
+{
+  "name": "comparisontechnologies",
+  "version": "1.0.0",
+  "description": "Simple anonymous message board server",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://robertwilliambellamy@bitbucket.org/robertwilliambellamy/comparisontechnologies.git"
+  },
+  "keywords": [
+    "Anonymous",
+    "Message",
+    "Board",
+    "Server"
+  ],
+  "author": "R.Bellamy",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/robertwilliambellamy/comparisontechnologies#readme",
+  "dependencies": {
+    "body": "^5.1.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "jest": "^26.6.3",
+    "node-xlsx": "^0.16.1",
+    "parser": "^0.1.4",
+    "request": "^2.88.2",
+    "sqlite3": "^5.0.2",
+    "supertest": "^6.1.3"
+  }
+}
