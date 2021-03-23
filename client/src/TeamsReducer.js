@@ -1,3 +1,5 @@
+import { config } from './configs/config';
+
 // Teams reducer, react to actions and modify state.
 const TeamsReducer = (state, action) => {
 
@@ -16,10 +18,25 @@ const TeamsReducer = (state, action) => {
     }
 };
 
-// Save a team update.
+// Save a team update on the server.
 const onSave = (new_state, data) => {
 
     new_state.teams[data.index] = data; 
+
+    const reqOptions = {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            id: data.id,
+            name: data.name, 
+            country: data.country, 
+            eliminated: data.eliminated
+        })
+    };
+
+    fetch(config.server_root + config.teams_put, reqOptions)
+        .then(res => res.json());
+
     return new_state;
 };
 

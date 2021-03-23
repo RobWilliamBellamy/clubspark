@@ -40,7 +40,7 @@ class TeamsAPI {
 
         router.put('/', (req, res, next) => {
 
-            this.teams_dao.updateTeam()
+            this.teams_dao.updateTeam(req.body)
             .then(() => {
                 res.json({msg: 'Put successful'});
             })

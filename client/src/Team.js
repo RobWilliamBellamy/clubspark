@@ -79,8 +79,7 @@ const Team = (props) => {
                        onClose={() => setSave(false)}
                        onOpen={() => setSave(true)}
                        open={save}
-                       size='small'
-                       trigger={<Button>Basic Modal</Button>}>
+                       size='small'>
                     <Header icon>
                         <Icon name='save' />
                         Confirm Save Changes

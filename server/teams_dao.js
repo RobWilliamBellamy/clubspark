@@ -122,7 +122,20 @@ class TeamsDAO {
 
     // Update a team record.
     updateTeam(team) {
+        
+        const id = team.id;
+        const name = team.name;
+        const country = team.country;
+        const eliminated = team.eliminated;        
 
+        const sql = `
+        UPDATE teams 
+        SET name='${name}', country ='${country}', 
+            eliminated='${eliminated}' 
+        WHERE "id" = ${id}
+        ;`
+
+        return this.db.run(sql, []);
     }
 }
 
