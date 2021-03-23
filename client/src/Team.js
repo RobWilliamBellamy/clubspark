@@ -15,6 +15,7 @@ const Team = (props) => {
     const [ state, dispatch ] = useContext(AppContext); 
     
     // Declate local state for team fields we wish to edit.
+    const [ index, setIndex ] = useState(0);
     const [ id, setId ] = useState(0);
     const [ name, setName ] = useState('');
     const [ country, setCountry ] = useState('');
@@ -24,7 +25,9 @@ const Team = (props) => {
     // Set initial values.
     useEffect(() => {
 
-        const team = props.location.state.team;
+        const team = props.location.state.team;        
+
+        setIndex(props.location.state.index);
         setId(team.id);
         setName(team.name);
         setCountry(team.country);
@@ -44,6 +47,7 @@ const Team = (props) => {
     const onSave = () => {
 
         dispatch({ type: 'SAVE_TEAM', data: {
+            index: index,
             id: id, 
             name: name,
             country: country,

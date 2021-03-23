@@ -18,13 +18,13 @@ const Teams = () => {
     const renderTableContent = () => {
 
         let rows = [];
-        state.teams.forEach((team, i) => {
+        state.teams.forEach((team, index) => {
 
             rows.push(
-                <Table.Row key={ 'team' + i }>
+                <Table.Row key={ 'team' + index }>
                     <Table.Cell>{ team.id }</Table.Cell>                    
                     <Table.Cell>
-                        <Link to={{ pathname: '/team', state: { team }}}>
+                        <Link to={{ pathname: '/team', state: { team, index }}}>
                             <Button name="load_team"
                                     floated='left'
                                     color="blue"  
