@@ -4,7 +4,7 @@ This README documents whatever steps are necessary to get the application up and
 
 ### What is this repository for? ###
 
-* ClubSpark.
+* ClubSpark Football API.
 * 1.0.0
 
 ### How do I get set up? ###
@@ -18,7 +18,7 @@ This README documents whatever steps are necessary to get the application up and
 
 * Run the client on a command line in the client directoy using the command: "npm start"
 * Page will open in your default browser.
-* Click "Start" on the interface to begin the rover movement sequence.
+* Select a team via the blue button to edit it.
 * Jest-based tests can be run via "npm test a".
 
 ### Contribution guidelines ###
