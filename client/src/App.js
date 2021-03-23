@@ -12,7 +12,10 @@ import 'semantic-ui-css/semantic.min.css';
 // Create context to share state.
 export const AppContext = createContext();
 
-// Create App.
+/**
+ * App.
+ * @returns 
+ */
 const App = () => {
 
     const [state, dispatch] = useReducer(
@@ -41,7 +44,7 @@ const App = () => {
                 <Switch>
                     <Route exact path='/' component={ Teams } />
                     <Route exact path='/teams' component={ Teams } />
-                    <Route exact path='/team/:index' component={ Team } />
+                    <Route exact path='/team' render={(props) => <Team {...props} />} />
                 </Switch>            
             </BrowserRouter>
         </AppContext.Provider>

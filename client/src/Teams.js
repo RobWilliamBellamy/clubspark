@@ -1,33 +1,42 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { Table } from 'semantic-ui-react';
+import { Table, Button, Icon } from 'semantic-ui-react';
 import { AppContext } from './App';
 
 import './css/Teams.css';
 
+/**
+ * Teams.
+ * @returns 
+ */
 const Teams = () => {
 
     // Use context to access state.
     const [ state ] = useContext(AppContext);     
 
+    // Render team rows.
     const renderTableContent = () => {
 
         let rows = [];
-        state.teams.forEach((t, i) => {
+        state.teams.forEach((team, i) => {
 
-            const link = { path: '/team/' + i };
             rows.push(
                 <Table.Row key={ 'team' + i }>
-                    <Table.Cell>{ t.id }</Table.Cell>                    
+                    <Table.Cell>{ team.id }</Table.Cell>                    
                     <Table.Cell>
-                        <Link to={`/team/${ i }`}>
-                            <button>
-                                { t.name }
-                            </button>
+                        <Link to={{ pathname: '/team', state: { team }}}>
+                            <Button name="load_team"
+                                    floated='left'
+                                    color="blue"  
+                                    icon                                  
+                                    labelPosition="right"
+                                    size="small">
+                                { team.name }<Icon name='angle right' />
+                            </Button>                
                         </Link>
                     </Table.Cell>
-                    <Table.Cell>{ t.country }</Table.Cell>
-                    <Table.Cell>{ t.eliminated }</Table.Cell>
+                    <Table.Cell>{ team.country }</Table.Cell>
+                    <Table.Cell>{ team.eliminated }</Table.Cell>
                 </Table.Row>
             )
         });

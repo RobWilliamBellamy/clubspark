@@ -9,7 +9,7 @@ const TeamsReducer = (state, action) => {
         case 'INIT_COUNTRIES':
             new_state.countries = action.data;
             return new_state;
-        case 'UPDATE_TEAM':            
+        case 'SAVE_TEAM':            
             new_state.teams[action.data.index] = action.data;            
             return new_state;
         default:
