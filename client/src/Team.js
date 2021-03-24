@@ -26,12 +26,12 @@ const Team = (props) => {
     useEffect(() => {
 
         const team = props.location.state.team;        
-
+        
         setIndex(props.location.state.index);
         setId(team.id);
         setName(team.name);
         setCountry(team.country);
-        setEliminated(team.eliminated);
+        setEliminated(team.eliminated === 'true');
 
     }, []);
     
@@ -51,10 +51,15 @@ const Team = (props) => {
             id: id, 
             name: name,
             country: country,
-            eliminated: eliminated,
+            eliminated: eliminated.toString(),
         }});
 
         setSave(false);
+        props.history.push('/');
+    };
+
+    // Back to teams.
+    const onBack = () => {
         props.history.push('/');
     };
 
@@ -146,15 +151,20 @@ const Team = (props) => {
                     <Table.Footer fullWidth>
                         <Table.Row>
                             <Table.HeaderCell colSpan='5'>
-                                <Button name="save"
-                                        floated='right'
-                                        color="blue"
-                                        icon
-                                        labelPosition="right"
-                                        size="small"
-                                        onClick={ () => setSave(true) }>
-                                    Save<Icon name='save' />
-                                </Button>                    
+                                <Button.Group floated='left'>
+                                    <Button name="back"
+                                            onClick={ () => onBack() }>Back</Button>
+                                    <Button.Or />
+                                    <Button name="save"                                            
+                                            color="blue"
+                                            icon
+                                            labelPosition="right"
+                                            size="small"
+                                            positive
+                                            onClick={ () => setSave(true) }>
+                                        Save<Icon name='save' />
+                                    </Button>     
+                                </Button.Group>               
                             </Table.HeaderCell>
                         </Table.Row>
                     </Table.Footer>

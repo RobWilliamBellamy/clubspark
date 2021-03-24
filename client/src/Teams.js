@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { Table, Button, Icon } from 'semantic-ui-react';
+import { Table } from 'semantic-ui-react';
 import { AppContext } from './App';
 
 import './css/Teams.css';
@@ -25,14 +25,7 @@ const Teams = () => {
                     <Table.Cell>{ team.id }</Table.Cell>                    
                     <Table.Cell>
                         <Link to={{ pathname: '/team', state: { team, index }}}>
-                            <Button name="load_team"
-                                    floated='left'
-                                    color="blue"  
-                                    icon                                  
-                                    labelPosition="right"
-                                    size="small">
-                                { team.name }<Icon name='angle right' />
-                            </Button>                
+                            { team.name }
                         </Link>
                     </Table.Cell>
                     <Table.Cell>{ team.country }</Table.Cell>

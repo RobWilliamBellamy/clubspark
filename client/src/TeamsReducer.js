@@ -20,8 +20,8 @@ const TeamsReducer = (state, action) => {
 
 // Save a team update on the server.
 const onSave = (new_state, data) => {
-
-    new_state.teams[data.index] = data; 
+    
+    new_state.teams[data.index] = data;     
 
     const reqOptions = {
         method: 'PUT',

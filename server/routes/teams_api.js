@@ -35,14 +35,18 @@ class TeamsAPI {
         });
 
         router.post("/", (req, res, next) => {
-            res.json({msg: 'Post successful'});
+            res.json({
+                status: 200,
+                msg: 'Post team successful'});
         });
 
         router.put('/', (req, res, next) => {
 
             this.teams_dao.updateTeam(req.body)
             .then(() => {
-                res.json({msg: 'Put successful'});
+                res.json({
+                    status: 200,
+                    msg: 'Put team successful'});
             })
             .catch((err) => {
                 res.json({status: 500});
@@ -50,7 +54,10 @@ class TeamsAPI {
         });
 
         router.delete('/', (req, res, next) => {
-            res.json({msg: 'Delete successful'});
+            res.json({
+                status: 200,
+                msg: 'Delete team successful'
+            });
         });
 
         return router;
