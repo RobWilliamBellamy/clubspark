@@ -1,4 +1,4 @@
-import { useContext, useState, useEffect } from 'react';
+import { useContext, useState } from 'react';
 import { Table, Image, Form, Input, Button, Icon, Modal, Header } from 'semantic-ui-react';
 import { AppContext } from './App';
 
@@ -15,33 +15,16 @@ const Team = (props) => {
     const [ state, dispatch ] = useContext(AppContext); 
     
     // Declate local state for team fields we wish to edit.
-    const [ index, setIndex ] = useState(0);
-    const [ id, setId ] = useState(0);
-    const [ name, setName ] = useState('');
-    const [ country, setCountry ] = useState('');
-    const [ eliminated, setEliminated ] = useState(false);
+    const team = props.location.state.team;  
+    const [ index ] = useState(props.location.state.index);
+    const [ id ] = useState(team.id);
+    const [ name, setName ] = useState(team.name);
+    const [ country, setCountry ] = useState(team.country);
+    const [ eliminated, setEliminated ] = useState(team.eliminated === 'true');
     const [ save, setSave ] = useState(false);
-    
-    // Set initial values.
-    useEffect(() => {
-
-        const team = props.location.state.team;        
-        
-        setIndex(props.location.state.index);
-        setId(team.id);
-        setName(team.name);
-        setCountry(team.country);
-        setEliminated(team.eliminated === 'true');
-
-    }, []);
     
     const team_img = `http://img.uefa.com/imgml/TP/teams/logos/70x70/${id}.png`;
     const team_page = `https://www.uefa.com/teamsandplayers/teams/club=${id}/profile/index.html`;        
-
-    // Open official team UEFA page.
-    const openLink = (e) => {
-        window.open(team_page, '_blank');
-    };
 
     // Save state changes, redirect to home page.
     const onSave = () => {
@@ -78,7 +61,9 @@ const Team = (props) => {
                 <h1><Image size='mini' src={ team_img } verticalAlign='top' />
                     <span>&nbsp;Team Detail Page</span>
                 </h1>
-                <p>Click <a href={ team_page } target='_blank' >here</a> for the official UEFA team page.</p>
+                <p>Click <a href={ team_page } 
+                            target='_blank' 
+                            rel="noreferrer">here</a> for the official UEFA team page.</p>
                 
                 <Modal basic
                        onClose={() => setSave(false)}
