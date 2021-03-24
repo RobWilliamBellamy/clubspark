@@ -38,12 +38,12 @@ const Team = (props) => {
         }});
 
         setSave(false);
-        props.history.push('/');
+        props.history.push(`/teams/${index}`);
     };
 
     // Back to teams.
     const onBack = () => {
-        props.history.push('/');
+        props.history.push(`/teams/${index}`);
     };
 
     // Create options for country drop-down.

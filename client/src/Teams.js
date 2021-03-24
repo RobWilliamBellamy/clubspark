@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Table } from 'semantic-ui-react';
 import { AppContext } from './App';
@@ -9,10 +9,20 @@ import './css/Teams.css';
  * Teams.
  * @returns 
  */
-const Teams = () => {
+const Teams = (props) => {
 
     // Use context to access state.
-    const [ state ] = useContext(AppContext);     
+    const [ state ] = useContext(AppContext);  
+    const [ index ] = useState(props.match.params.index);       
+
+    // Scroll to anchor.    
+    setTimeout(() => {
+        const element = document.getElementById(`team${index}`);
+        window.scrollTo({
+            behavior: element ? "smooth" : "auto",
+            top: element ? element.offsetTop : 0
+        });
+    }, 500);
 
     // Render team rows.
     const renderTableContent = () => {
@@ -20,8 +30,9 @@ const Teams = () => {
         let rows = [];
         state.teams.forEach((team, index) => {
 
+            const uid = `team${index}`;
             rows.push(
-                <Table.Row key={ `team${index}` }>
+                <Table.Row key={ uid } id={ uid }>
                     <Table.Cell>{ team.id }</Table.Cell>                    
                     <Table.Cell>
                         <Link to={{ pathname: '/team', state: { team, index }}}>

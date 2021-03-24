@@ -43,8 +43,8 @@ const App = () => {
             <BrowserRouter>
                 <Switch>
                     <Route exact path='/' component={ Teams } />
-                    <Route exact path='/teams' component={ Teams } />
-                    <Route exact path='/team' render={(props) => <Team {...props} />} />
+                    <Route exact path='/teams/:index' render={ (props) => <Teams {...props} /> } />
+                    <Route exact path='/team' render={ (props) => <Team {...props} /> } />
                 </Switch>            
             </BrowserRouter>
         </AppContext.Provider>
