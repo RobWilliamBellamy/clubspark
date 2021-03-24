@@ -17,7 +17,8 @@ This README documents whatever steps are necessary to get the application up and
 * Run the client on a command-line in the client directory using the command: "npm start"
 * Page will open in your default browser.
 * Select a team in the "Team Listings Page" via the team name link to edit that team.
-* In the "Team Details Page" any of "Name", "Country", "Eliminated" can be modified and saved to the server using the "Save" button and selecting "Yes" on the "Confirm Save Changes" confirmation prompt. 
+* In the "Team Details Page" any of "Name", "Country" and "Eliminated" can be modified and saved to the server using the "Save" button and selecting "Yes" on the "Confirm Save Changes" confirmation prompt. 
+* The "Country" select option is searchable.
 * Saving will return you to the "Team Listings Page" where the relevant team record will be noted to have been updated.
 * Selecting "Back" in the "Team Details Page" will return you to the "Team Listings Page" and discard any team data changes.
 
