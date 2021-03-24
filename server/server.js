@@ -55,15 +55,16 @@ class Server {
 
               // Add message routes.
               app.use('/teams', new TeamsAPI(this.teams_dao));  
-              app.use('/countries', new CountriesAPI(this.teams_dao));              
+              app.use('/countries', new CountriesAPI(this.teams_dao));  
+              
+              // Error route.
+              app.use((req, res, next) => { res.status(404).json({ err: 'Page not found' }) });
 
               // Finally listen for requests on the specified port.
               this.server = app.listen(config.port, () => {
                   console.log(`Server listening at http://localhost:${config.port}`);
                   resolve();
               });
-
-
           });
     }
 

@@ -16,7 +16,7 @@ beforeAll(async () => {
 it('Gets teams list', async done => {
     
     const response = await request.get('/teams/list');  
-    expect(response.body.status).toBe(200);    
+    expect(response.status).toBe(200);    
     expect(response.body.teams.length).toBeGreaterThan(0);
     done();
 });
@@ -27,6 +27,14 @@ it('Gets countries list', async done => {
     const response = await request.get('/countries/list');
     expect(response.status).toBe(200);
     expect(response.body.countries.length).toBeGreaterThan(0);
+    done();
+});
+
+// Force a 404 status response code.
+it('Forces 404', async done => {
+
+    const response = await request.get('/nosuch');
+    expect(response.status).toBe(404);    
     done();
 });
 

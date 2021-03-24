@@ -23,14 +23,10 @@ class CountriesAPI {
 
             this.teams_dao.getCountries()
             .then((countries) => {
-
-                res.json({
-                    status: 200,
-                    countries: countries
-                });
+                res.status(200).json({ countries: countries });
             })
             .catch((err) => {                
-                res.json({status: 500});
+                res.status(500).json({ err: err });
             });          
         });
 
