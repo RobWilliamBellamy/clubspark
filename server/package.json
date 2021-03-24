@@ -1,24 +1,22 @@
 {
-  "name": "comparisontechnologies",
+  "name": "clubspark",
   "version": "1.0.0",
-  "description": "Simple anonymous message board server",
+  "description": "Football API",
   "main": "index.js",
   "scripts": {
     "test": "jest"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://robertwilliambellamy@bitbucket.org/robertwilliambellamy/comparisontechnologies.git"
+    "url": "https://github.com/RobWilliamBellamy/clubspark.git"
   },
   "keywords": [
-    "Anonymous",
-    "Message",
-    "Board",
-    "Server"
+      "football",
+      "uefa"
   ],
   "author": "R.Bellamy",
   "license": "ISC",
-  "homepage": "https://bitbucket.org/robertwilliambellamy/comparisontechnologies#readme",
+  "homepage": "https://github.com/RobWilliamBellamy/clubspark",
   "dependencies": {
     "body": "^5.1.0",
     "cors": "^2.8.5",

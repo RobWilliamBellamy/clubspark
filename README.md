@@ -14,7 +14,8 @@ This README documents whatever steps are necessary to get the application up and
 
 * Run the server on a command line in the server directory using the command: "node ./index.js"
 * The first time the server is run a database will be created and data inserted from
-* the supplied XLS spreadsheet.
+  the supplied XLS spreadsheet.
+* Run server Jest-based tests in the server directory via the command "npm run test".
 
 * Run the client on a command line in the client directoy using the command: "npm start"
 * Page will open in your default browser.
