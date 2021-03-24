@@ -66,7 +66,7 @@ class TeamsDAO {
                     console.log('TeamsDAO inserting new data');
                     const externalData = xlsx.parse(fs.readFileSync(config.data_source))[0].data;
                     
-                    for (let i = 1; i < externalData.length; i++) {
+                    for (let i = 1; i < externalData.length -1; i++) {
 
                         const team = externalData[i];                        
                         this.insertTeam(team);
