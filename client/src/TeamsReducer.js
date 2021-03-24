@@ -35,7 +35,7 @@ const onSave = (new_state, data) => {
     };
 
     fetch(config.server_root + config.teams_put, reqOptions)
-        .then(res => res.json());
+    .then(res => res.json());
 
     return new_state;
 };

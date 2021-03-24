@@ -35,7 +35,7 @@ const Team = (props) => {
 
     }, []);
     
-    const team_img = 'http://img.uefa.com/imgml/TP/teams/logos/70x70/' + id + '.png';
+    const team_img = `http://img.uefa.com/imgml/TP/teams/logos/70x70/${id}.png`;
     const team_page = `https://www.uefa.com/teamsandplayers/teams/club=${id}/profile/index.html`;        
 
     // Open official team UEFA page.
@@ -78,7 +78,7 @@ const Team = (props) => {
                 <h1><Image size='mini' src={ team_img } verticalAlign='top' />
                     <span>&nbsp;Team Detail Page</span>
                 </h1>
-                <p>Click <a onClick={ (e) => openLink(e) } >here</a> for the official UEFA team page.</p>
+                <p>Click <a href={ team_page } target='_blank' >here</a> for the official UEFA team page.</p>
                 
                 <Modal basic
                        onClose={() => setSave(false)}
