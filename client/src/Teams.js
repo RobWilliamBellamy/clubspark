@@ -21,7 +21,7 @@ const Teams = () => {
         state.teams.forEach((team, index) => {
 
             rows.push(
-                <Table.Row key={ 'team' + index }>
+                <Table.Row key={ `team${index}` }>
                     <Table.Cell>{ team.id }</Table.Cell>                    
                     <Table.Cell>
                         <Link to={{ pathname: '/team', state: { team, index }}}>
@@ -39,7 +39,7 @@ const Teams = () => {
 
 
     return (<div>  
-                <h1>Teams Page</h1>
+                <h1>Team Listings Page</h1>
                 <p>Select team name to edit the team.</p>
                 <Table celled striped>
                     <Table.Header>

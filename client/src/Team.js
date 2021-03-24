@@ -126,7 +126,7 @@ const Team = (props) => {
                             <Table.Cell>Eliminated</Table.Cell>
                             <Table.Cell>
                                 <Form.Group>
-                                    <Form.Checkbox key={ 'check_box_' + name } 
+                                    <Form.Checkbox key={ `check_box_${name}` } 
                                                 defaultChecked={ eliminated } 
                                                 onChange={ (event, data) => setEliminated(data.checked) } />
                                 </Form.Group>
