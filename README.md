@@ -14,6 +14,7 @@ This README documents whatever steps are necessary to get the application up and
 * Run the server by switching to the server directory on a command-line and supplying the command: "node ./index.js"
 * A database will be created and data inserted from the supplied XLS spreadsheet the first time the server is run.
 * Run server Jest-based tests in the server directory via the command "npm test". Please ensure the server is NOT running before commencing this test script.
+* Swagger documentation available at http://localhost:3001/teams/api
 * Run the client on a command-line in the client directory using the command: "npm start"
 * Page will open in your default browser.
 * Select a team in the "Team Listings Page" via the team name link to edit that team.

@@ -28,12 +28,12 @@ const App = () => {
         // Teams list.
         fetch(config.server_root + config.teams_list)
         .then(res => res.json())
-        .then(data => dispatch({ type: 'INIT_TEAMS', data: data.teams }))
+        .then(data => dispatch({ type: 'INIT_TEAMS', data: data.teams }));
         
         // Countries list.
         fetch(config.server_root + config.countries_list)
         .then(res => res.json())
-        .then(data => dispatch({ type: 'INIT_COUNTRIES', data: data.countries }))
+        .then(data => dispatch({ type: 'INIT_COUNTRIES', data: data.countries }));
 
     }, []);
 

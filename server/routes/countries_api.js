@@ -10,16 +10,16 @@ const router = express.Router();
  */
 class CountriesAPI {
 
-    constructor(teams_dao) {   
+    constructor(app, teams_dao) {   
 
         this.teams_dao = teams_dao;
-        return this.createAPI();
+        return this.createAPI(app);
     }
 
     // Create the countries API.
-    createAPI() {
+    createAPI(app) {
 
-        router.get("/list", (req, res, next) => {
+        router.get("/", (req, res, next) => {
 
             this.teams_dao.getCountries()
             .then((countries) => {

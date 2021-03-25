@@ -1,6 +1,10 @@
 "use strict";
 
+const swagger_ui = require('swagger-ui-express');
+const teamSwagger = require('./../swagger/team_swagger.json');
+
 const express = require('express');
+
 const router = express.Router();
 
 /**
@@ -10,17 +14,17 @@ const router = express.Router();
  */
 class TeamsAPI {
 
-    constructor(teams_dao) {   
-
-        this.teams_dao = teams_dao;
-        return this.createAPI();
+    constructor(app, teams_dao) {   
+        
+        this.teams_dao = teams_dao;    
+        return this.createAPI(app);
     }
 
     // Create the teams CRUD API.
-    createAPI() {
+    createAPI(app) {
 
-        router.get("/list", (req, res, next) => {
-
+        router.get("/", (req, res, next) => {
+                
             this.teams_dao.getTeams()
             .then((teams) => {
                 res.status(200).json({ teams: teams });
@@ -47,8 +51,11 @@ class TeamsAPI {
 
         router.delete('/', (req, res, next) => {
             res.status(200).json({ msg: 'Delete team successful' });
-        });
-
+        }); 
+                
+        // Add teams API docs to teams route.
+        router.use('/api', swagger_ui.serve, swagger_ui.setup(teamSwagger));
+        
         return router;
     }
 }
