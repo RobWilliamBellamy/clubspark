@@ -1,6 +1,6 @@
 "use strict";
 
-const swagger_ui = require('swagger-ui-express');
+const swagger_helper = require('./../swagger_helper');
 const countriesSwagger = require('./../swagger/countries_swagger');
 
 const express = require('express');
@@ -22,6 +22,10 @@ class CountriesAPI {
     // Create the countries API.
     createAPI(app) {
 
+        // Add swagger validation and ui.
+        swagger_helper.addValidation(router, countriesSwagger);
+        swagger_helper.addUI(app, countriesSwagger, 'countries');
+
         router.get("/", (req, res, next) => {
 
             this.teams_dao.getCountries()
@@ -32,14 +36,6 @@ class CountriesAPI {
                 res.status(500).json({ err: err });
             });          
         });
-
-        // Add swagger ui to document API
-        const swagger_ui_options = {
-            customCss: '.swagger-ui .topbar { display: none }'
-        };     
-                
-        app.use('/countries/api', swagger_ui.serveFiles(countriesSwagger), 
-            swagger_ui.setup(countriesSwagger, swagger_ui_options));
 
         return router;
     }
