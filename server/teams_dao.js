@@ -45,7 +45,7 @@ class TeamsDAO {
           name VARCHAR,
           country VARCHAR,
           eliminated BOOLEAN)
-        `
+        ;`;
         return this.db.run(sql);
     }
 
@@ -83,7 +83,7 @@ class TeamsDAO {
 
         const sql = `
         SELECT "id", "name", "country", "eliminated" FROM teams ORDER BY "name" ASC
-        ;`
+        ;`;
 
         return this.db.all(sql);
     }
@@ -93,7 +93,7 @@ class TeamsDAO {
         
         const sql = `
         SELECT "id", "name", "country", "eliminated" FROM teams WHERE "id" = $1
-        ;`
+        ;`;
 
         return this.db.get([ id ]);
     }
@@ -103,7 +103,7 @@ class TeamsDAO {
 
         const sql = `
         SELECT DISTINCT("country") AS "country" FROM teams ORDER BY "country" ASC
-        ;`
+        ;`;
 
         return this.db.all(sql);
     }
@@ -115,27 +115,21 @@ class TeamsDAO {
 
         const sql = `
         INSERT INTO teams(id, name, country, eliminated) VALUES(` + vals + `)
-        ;`
+        ;`;
 
         return this.db.run(sql, []);
     }
 
     // Update a team record.
     updateTeam(team) {
-        
-        const id = team.id;
-        const name = team.name;
-        const country = team.country;
-        const eliminated = team.eliminated;        
 
         const sql = `
         UPDATE teams 
-        SET name='${name}', country ='${country}', 
-            eliminated='${eliminated}' 
-        WHERE "id" = ${id}
-        ;`
+        SET "name"=$2, "country"=$3, "eliminated"=$4
+        WHERE "id"=$1
+        ;`;
 
-        return this.db.run(sql, []);
+        return this.db.run(sql, [ team.id, team.name, team.country, team.eliminated ]);
     }
 }
 
