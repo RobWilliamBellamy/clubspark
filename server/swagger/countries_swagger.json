@@ -29,7 +29,7 @@
                         },
                         "examples": {
                             "application/json": {                                
-                                "name": "England"                                
+                                "country": "England"                                
                             }
                         }
                     }
@@ -42,10 +42,10 @@
             "description": "Country Schema",
             "type": "object",
             "required": [
-                "name"
+                "country"
             ],
             "properties": {
-                "name": {
+                "country": {
                     "description": "Country name",
                     "type": "string"                                    
                 }
