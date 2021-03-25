@@ -1,0 +1,73 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Teams API",
+        "version": "1.0.0"
+    },
+    "host": "localhost:3001",
+    "schemes": [
+        "http"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/teams": {
+            "get": {
+                "summary": "Get Teams",
+                "responses": {
+                    "200": {
+                        "description": "Teams",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Team"
+                            }
+                        },
+                        "examples": {
+                            "application/json": {
+                                "id": 123,
+                                "name": "Spurs",
+                                "country": "England",
+                                "eliminated": false
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Team": {
+            "description": "Team Schema",
+            "type": "object",
+            "required": [
+                "id",
+                "name",
+                "country",
+                "eliminated"
+            ],
+            "properties": {
+                "id": {
+                    "description": "Team id",
+                    "type": "integer"                                    
+                },
+                "name": {
+                    "description": "Team name",
+                    "type": "string"                                    
+                },
+                "country": {
+                    "description": "Team country",
+                    "type": "string"                                    
+                },
+                "eliminated": {
+                    "description": "Team elimination status",
+                    "type": "string"                                    
+                }
+            }
+        }
+    }
+}

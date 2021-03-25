@@ -25,15 +25,20 @@ const App = () => {
     // Get list of teams and unique countries.
     useEffect(() => {
 
+        // Common fetch options.
+        const fetch_options = {
+            headers: { 'Content-Type': 'application/json' }
+        };
+
         // Teams list.
-        fetch(config.server_root + config.teams_list)
+        fetch(config.server_root + config.teams_list, fetch_options)
         .then(res => res.json())
-        .then(data => dispatch({ type: 'INIT_TEAMS', data: data.teams }));
+        .then(data => dispatch({ type: 'INIT_TEAMS', data: data }));
         
         // Countries list.
-        fetch(config.server_root + config.countries_list)
+        fetch(config.server_root + config.countries_list, fetch_options)
         .then(res => res.json())
-        .then(data => dispatch({ type: 'INIT_COUNTRIES', data: data.countries }));
+        .then(data => dispatch({ type: 'INIT_COUNTRIES', data: data }));
 
     }, []);
 

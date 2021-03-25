@@ -1,0 +1,55 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Countries API",
+        "version": "1.0.0"
+    },
+    "host": "localhost:3001",
+    "schemes": [
+        "http"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/countries": {
+            "get": {
+                "summary": "Get Countries",
+                "responses": {
+                    "200": {
+                        "description": "Countries",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Country"
+                            }
+                        },
+                        "examples": {
+                            "application/json": {                                
+                                "name": "England"                                
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Country": {
+            "description": "Country Schema",
+            "type": "object",
+            "required": [
+                "name"
+            ],
+            "properties": {
+                "name": {
+                    "description": "Country name",
+                    "type": "string"                                    
+                }
+            }
+        }
+    }
+}

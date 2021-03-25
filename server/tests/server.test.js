@@ -15,18 +15,18 @@ beforeAll(async () => {
 // Get teams list.
 it('Gets teams list', async done => {
     
-    const response = await request.get('/teams/list');  
+    const response = await request.get('/teams/');  
     expect(response.status).toBe(200);    
-    expect(response.body.teams.length).toBeGreaterThan(0);
+    expect(response.body.length).toBeGreaterThan(0);
     done();
 });
 
 // Get countries.
 it('Gets countries list', async done => {
 
-    const response = await request.get('/countries/list');
+    const response = await request.get('/countries/');
     expect(response.status).toBe(200);
-    expect(response.body.countries.length).toBeGreaterThan(0);
+    expect(response.body.length).toBeGreaterThan(0);
     done();
 });
 
